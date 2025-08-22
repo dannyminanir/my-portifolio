@@ -3,193 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Minani | Portfolio</title>
+  <title>Daniel Minani | AI Portfolio MVP</title>
   <style>
-    * { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; box-sizing: border-box; }
-    body { background: black; color: white; }
-    .container { padding: 10px 10%; }
-    nav { display: flex; justify-content: space-between; align-items: center; }
-    nav ul li { display: inline-block; margin: 10px 20px; list-style: none; }
-    nav ul li a { text-decoration: none; color: #fff; font-size: 18px; position: relative; }
-    nav ul li a::after { content: ''; width: 0; height: 3px; background: red; position: absolute; left: 0; bottom: -6px; transition: 0.5s; }
-    nav ul li a:hover::after { width: 100%; }
-    .logo { font-size: 28px; font-weight: bold; color: blue; }
-    .span { color: red; }
-    #header { height: 100vh; background: url(image/background.JPEG) no-repeat center/cover; }
-    .header-text { margin-top: 20%; font-size: 30px; }
-    .header-text h1 { font-size: 50px; }
-    .header-text span { color: blue; }
-
-    .sub-title { font-size: 40px; font-weight: 600; margin-bottom: 20px; }
-    section { padding: 60px 0; }
-    .btn { text-decoration: none; color: white; border: 2px solid #ff004f; padding: 12px 30px; border-radius: 6px; margin-top: 20px; display: inline-block; transition: 0.3s; }
-    .btn:hover { background: #ff004f; }
-
-    /* Reflection Journal */
-    .journal-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-    .journal-card { background: #262626; padding: 20px; border-radius: 10px; transition: 0.3s; }
-    .journal-card:hover { background: #ff004f; transform: translateY(-5px); }
-
-    /* Profiles */
-    .profiles a { display: inline-block; margin: 10px; color: white; text-decoration: none; border: 1px solid #ff004f; padding: 10px 20px; border-radius: 6px; }
-    .profiles a:hover { background: #ff004f; }
-
-    /* Contact */
-    .contact-row { display: flex; flex-wrap: wrap; justify-content: space-between; }
-    .contact-left, .contact-right { flex-basis: 45%; }
-    .contact-right form input, .contact-right form textarea { width: 100%; padding: 10px; margin: 10px 0; border: none; border-radius: 6px; background: #262626; color: white; }
-    .submit { background: #ff004f; border: none; padding: 12px; border-radius: 6px; cursor: pointer; color: white; }
-    .captcha-box { margin-top: 10px; }
-
-    .copyright { text-align: center; padding: 20px; margin-top: 30px; background: #262626; }
-    @media(max-width: 768px) {
-      .contact-left, .contact-right { flex-basis: 100%; }
-    }
+    body { margin:0; font-family: Poppins, sans-serif; background:#000; color:#fff; }
+    .container { padding: 40px 10%; }
+    .hero { text-align:center; padding:100px 20px; background:#111; }
+    .hero h1 { font-size:48px; color:#ff004f; }
+    .hero p { font-size:20px; margin:20px 0; }
+    .btn { background:#ff004f; padding:12px 30px; border-radius:6px; text-decoration:none; color:white; font-weight:bold; }
+    .section { margin:80px 0; }
+    .sub-title { font-size:32px; margin-bottom:20px; }
+    /* Chat MVP */
+    #chat-box { background:#262626; padding:20px; border-radius:10px; height:300px; overflow-y:auto; margin-bottom:10px; }
+    #chatForm { display:flex; gap:10px; }
+    #chatForm input { flex:1; padding:10px; border:none; border-radius:6px; background:#333; color:#fff; }
+    .submit { background:#ff004f; border:none; padding:10px 20px; border-radius:6px; cursor:pointer; color:white; }
+    /* Project cards */
+    .projects { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:20px; }
+    .card { background:#262626; padding:20px; border-radius:10px; }
   </style>
 </head>
 <body>
-  <!-- Header -->
-  <div id="header">
-    <div class="container">
-      <nav>
-        <h1 class="logo">Dan<span class="span">iel</span></h1>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#comms">Comms Material</a></li>
-          <li><a href="#video">Intro Video</a></li>
-          <li><a href="#profiles">Profiles</a></li>
-          <li><a href="#journal">Reflection Journal</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      <div class="header-text">
-        <h1>Hi, I'm <span>Daniel Minani</span></h1>
-        <p>Software Developer | Kigali, Rwanda</p>
-      </div>
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Hi, I’m Daniel Minani</h1>
+    <p>Software Developer | Kigali, Rwanda</p>
+    <a href="#ai" class="btn">💬 Try My AI Assistant</a>
+  </section>
+
+  <!-- AI Assistant MVP -->
+  <section id="ai" class="container section">
+    <h1 class="sub-title">Chat with My AI Assistant</h1>
+    <div id="chat-box">
+      <p><strong>AI:</strong> Hi! 👋 I’m here to answer questions about Daniel’s portfolio.</p>
     </div>
-  </div>
-
-  <!-- About -->
-  <section id="about" class="container">
-    <h1 class="sub-title">About Me</h1>
-    <p>I am a motivated Software Developer and Software Engineering undergraduate at UNILAK. Skilled in React.js and Spring Boot, I build scalable and user-friendly applications.</p>
+    <form id="chatForm">
+      <input type="text" id="userMessage" placeholder="Type your message..." required>
+      <button type="submit" class="submit">Send</button>
+    </form>
   </section>
 
-  <!-- Portfolio -->
-  <section id="portfolio" class="container">
-    <h1 class="sub-title">Projects</h1>
-    <ul>
-      <li>Online Skill Training Platform – React.js & Spring Boot</li>
-      <li>Mission Management System – Workflow approvals & database integration</li>
-      <li>Portfolio Website – Personal showcase (this site)</li>
-    </ul>
-  </section>
-
-  <!-- Comms Material -->
-  <section id="comms" class="container">
-    <h1 class="sub-title">Comms Material</h1>
-    <a href="Master_CV.docx" download class="btn">Download CV</a>
-    <a href="Cover_Letter.docx" download class="btn">Download Cover Letter</a>
-  </section>
-
-  <!-- Intro Video -->
-  <section id="video" class="container">
-    <h1 class="sub-title">Intro Video</h1>
-    <video width="600" controls>
-      <source src="intro.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-  </section>
-
-  <!-- Online Profiles -->
-  <section id="profiles" class="container">
-    <h1 class="sub-title">Online Profiles</h1>
-    <div class="profiles">
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank">LinkedIn</a>
-
+  <!-- Projects Preview -->
+  <section class="container section">
+    <h1 class="sub-title">Featured Projects</h1>
+    <div class="projects">
+      <div class="card"><h3>Online Skill Training Platform</h3><p>Built with React.js & Spring Boot</p></div>
+      <div class="card"><h3>Mission Management System</h3><p>Workflow approvals & database integration</p></div>
+      <div class="card"><h3>Portfolio Website</h3><p>This interactive showcase</p></div>
     </div>
+    <br>
+    <a href="index7.html" class="btn">View Full Portfolio</a>
   </section>
-
-  <!-- Reflection Journal -->
-  <section id="journal" class="container">
-  <h1 class="sub-title">Reflection Journal</h1>
-
-  <!-- Journal Entry Form -->
-  <form id="journalForm" style="margin-bottom:20px;">
-    <input type="text" id="journalTitle" placeholder="Entry Title" required
-      style="width:100%; padding:10px; margin:10px 0; border-radius:6px; border:none; background:#262626; color:white;">
-    <textarea id="journalContent" rows="4" placeholder="Write your reflection..." required
-      style="width:100%; padding:10px; margin:10px 0; border-radius:6px; border:none; background:#262626; color:white;"></textarea>
-    <button type="submit" class="submit">Add Entry</button>
-  </form>
-
-  <!-- Journal Entries Display -->
-  <div class="journal-list" id="journalList">
-    <!-- Example starter entries -->
-    <div class="journal-card">
-      <h3>My Learning Journey</h3>
-      <p>Reflecting on my progress in React.js and Spring Boot.</p>
-    </div>
-    <div class="journal-card">
-      <h3>Teamwork Experience</h3>
-      <p>Insights from collaborating on group projects at university.</p>
-    </div>
-  </div>
-</section>
 
   <!-- Contact -->
-  <section id="contact" class="container">
-    <h1 class="sub-title">Contact Me</h1>
-    <div class="contact-row">
-      <div class="contact-left">
-        <p>Email: <a href="mailto:minanidanny28@gmail.com" style="color:white;">minanidanny28@gmail.com</a></p>
-        <p>Phone: +250 789 287 915</p>
-      </div>
-      <div class="contact-right">
-        <form onsubmit="return validateCaptcha()">
-          <input type="text" placeholder="Your Name" required>
-          <input type="email" placeholder="Your Email" required>
-          <textarea rows="6" placeholder="Your Message"></textarea>
-          <div class="captcha-box">
-            <label>Solve: 3 + 4 = ? </label>
-            <input type="text" id="captcha" required>
-          </div>
-          <button type="submit" class="submit">Send</button>
-        </form>
-      </div>
-    </div>
+  <section class="container section">
+    <h1 class="sub-title">Contact</h1>
+    <p>Email: <a href="mailto:minanidanny28@gmail.com" style="color:#ff004f;">minanidanny28@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/feed/" target="_blank" style="color:#ff004f;">linkedin.com</a></p>
   </section>
 
-  <!-- Footer -->
-  <div class="copyright">
-    <p>© 2025 Daniel Minani | Made with ❤️</p>
-  </div>
-
   <script>
-  // Dynamic Journal Handling
-  const journalForm = document.getElementById("journalForm");
-  const journalList = document.getElementById("journalList");
+    const chatForm = document.getElementById("chatForm");
+    const chatBox = document.getElementById("chat-box");
 
-  journalForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const title = document.getElementById("journalTitle").value.trim();
-    const content = document.getElementById("journalContent").value.trim();
-
-    if (title && content) {
-      // Create new journal card
-      const card = document.createElement("div");
-      card.classList.add("journal-card");
-      card.innerHTML = `<h3>${title}</h3><p>${content}</p>`;
-
-      // Add to top of the list
-      journalList.prepend(card);
-
-      // Reset form
-      journalForm.reset();
-    }
-  });
-</script>
+    chatForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const userMessage = document.getElementById("userMessage").value.trim();
+      if (userMessage) {
+        chatBox.innerHTML += `<p><strong>You:</strong> ${userMessage}</p>`;
+        
+        // Simple AI logic (MVP)
+        let aiReply = "I’m still learning! But soon, I’ll answer with more details about Daniel.";
+        if (userMessage.toLowerCase().includes("skills")) {
+          aiReply = "Daniel is skilled in React.js, Spring Boot, and building scalable applications.";
+        } else if (userMessage.toLowerCase().includes("projects")) {
+          aiReply = "Daniel has worked on an Online Skill Training Platform, Mission Management System, and Portfolio Website.";
+        } else if (userMessage.toLowerCase().includes("contact")) {
+          aiReply = "You can reach Daniel at minanidanny28@gmail.com 📩";
+        }
+         else if (userMessage.toLowerCase().includes("name")) {
+          aiReply = "My name is Minani daniel";
+        }
+ else if (userMessage.toLowerCase().includes("hi")) {
+          aiReply = "Hi how are doing?";
+        }
+        chatBox.innerHTML += `<p><strong>AI:</strong> ${aiReply}</p>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+        document.getElementById("userMessage").value = "";
+      }
+    });
+  </script>
 </body>
 </html>
